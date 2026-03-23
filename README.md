@@ -70,8 +70,8 @@ from non-game sounds like fireworks and cheerleaders.
 
 ## Scoring Model
 ```
-Final Score = Event Magnitude × Context Score × Player Importance 
-            × Commentary Excitement × Visual Emotion
+Final Score = Event Magnitude + Context Score + Player Importance 
+            + Commentary Excitement + Visual Emotion
 ```
 
 Events are sorted by score. Highest scoring events fill the 10-minute 
@@ -133,23 +133,6 @@ requiring real stadium hardware.
 
 ---
 
-## Networking Layer — Key Contribution
-
-As a network engineering professional, Layer 3 is the core technical contribution:
-
-| Component | Technology | Purpose |
-|---|---|---|
-| Live ingestion | AWS Kinesis | Handles thousands of video frames per second |
-| AI processing | AWS SageMaker | Runs highlight detection model at scale |
-| Storage | AWS S3 | Stores all highlight clips with redundancy |
-| Fast delivery | AWS CloudFront CDN | Edge servers near each viewer — under 500ms load |
-| Streaming | HLS protocol | Adaptive bitrate — works on 4G and 5G |
-| Scale | Auto-scaling groups | Handles 10 million viewers during IPL finals |
-| Security | SSL encryption | Protects all video data in transit |
-| Real-time | WebRTC | Sub-second latency for live highlight delivery |
-
----
-
 ## RASI Framework
 
 | Task | Responsible | Accountable | Support | Informed |
@@ -162,23 +145,12 @@ As a network engineering professional, Layer 3 is the core technical contributio
 
 ---
 
-## Files in This Repository
-
-| File | Description |
-|---|---|
-| `Cricket_Highlight_Generation_System_Case_Study.docx` | Full case study — 11 sections covering architecture, edge cases, scoring model and results |
-| `Cricket_Highlight_Generator.xlsx` | 5-sheet test workbook — 70 test scenarios with 100% pass rate |
-
----
-
 ## Key Takeaways
 
 - Multimodal validation prevents false positives — an event must be confirmed 
   by scoreboard data before being accepted
 - Temporal event linking ensures narrative moments are never missed
-- The networking layer is critical — without CDN and HLS streaming, highlights 
-  cannot reach millions of viewers within seconds of occurring
 - Testing with Excel simulates the full production pipeline without requiring 
   real stadium hardware, proving the logic is sound before deployment
-```
+
 
